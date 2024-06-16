@@ -4,5 +4,5 @@ from django.urls import path, include
 from .views import hello
 
 urlpatterns = [
-    path('', include(hello))
+    path('', hello, name='hello'),
 ]
