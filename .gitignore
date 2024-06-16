@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / dependency files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+develop-eggs/
+EGG-INFO/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Django
+local_settings.py
+db.sqlite3
+media/
+static/
+migrations/
+
+# Flask
+instance/
+.flaskenv
+
+# FastAPI
+.env
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Sphinx documentation
+docs/_build/
+
+# PyInstaller
+build/
+dist/
+
+# pytest
+.pytest_cache/
+
+# Celery
+celerybeat-schedule
+celeryd-*.pid
+
+# Coverage.py
+.coverage
+coverage.xml
+
+# Django
+local_settings.py
+db.sqlite3
+media/
+static/
+migrations/
+
+# Editor files
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*~
+```
