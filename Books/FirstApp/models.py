@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 
+
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -12,6 +13,7 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
+
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
