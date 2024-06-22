@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklibr - Главная</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'FirstApp/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'home' %}">Booklibr</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Категории</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Акции</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Войти</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Регистрация</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <h1 class="mb-4">Акции</h1>
+        <div class="row">
+            {% for book in books_on_sale %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{% static 'book_images/' %}{{ book.image }}" alt="{{ book.title }}">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="#">{{ book.title }}</a></h4>
+                            <p class="card-text">{{ book.description|truncatechars:100 }}</p>
+                            <p class="card-text">
+                                <span class="price">
+                                    {% if book.discount_price %}
+                                        {{ book.discount_price }} руб.
+                                        <del>{{ book.price }} руб.</del>
+                                    {% else %}
+                                        {{ book.price }} руб.
+                                    {% endif %}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
